@@ -1,26 +1,19 @@
-let tracking
-function init(){
-    tracking = JSON.parse(localStorage.getItem('tracking'))
-    if(!tracking){
-        tracking = []
-        localStorage.setItem('tracking', JSON.stringify(tracking))
-    }
-}
+import StorageService from './storage.js'
+
+const storage = new StorageService()
+
 
 function addTracking(){
     const store     = document.querySelector('#retail').value
     const tracknum  = document.querySelector('#idseguimiento').value
-    console.log(store, tracknum)
-    
-    tracking.push({store, tracknum})
-    localStorage.setItem('tracking', JSON.stringify(tracking))
+    storage.add(store, tracknum)
     
 }
 
 function fillList(){
     const list = document.querySelector('#compras')
 
-    for(item of tracking){
+    for(let item of storage.readAll()){
         let url = ''
         switch(item.store){
             case 'easy':
@@ -46,5 +39,4 @@ function createListNode(store, number, url){
     return li
 }
 
-init()
 fillList()
