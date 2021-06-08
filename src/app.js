@@ -11,8 +11,8 @@ const trackers = {
 }
 function addTracking(){
     const store     = document.querySelector('#retail').value
-    const tracknum  = document.querySelector('#idseguimiento').value
-    storage.add(store, tracknum)
+    const info  = document.querySelector('#idseguimiento').value
+    storage.add(store, info)
     
 }
 
