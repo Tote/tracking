@@ -13,7 +13,7 @@ export default class StorageService{
 
     add(store, info){
         this.storageObj.push({store, info})
-        localStorage.setItem(serviceID, JSON.stringify(this.storageObj))
+        localStorage.setItem(this.serviceID, JSON.stringify(this.storageObj))
     }
 
     readAll(){

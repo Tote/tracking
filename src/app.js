@@ -9,12 +9,6 @@ const trackers = {
         return `http://seguimiento.spdigital.cl/?web_order=${parsedInfo[0]}&check=${parsedInfo[1]}&button=`
     }
 }
-function addTracking(){
-    const store     = document.querySelector('#retail').value
-    const info  = document.querySelector('#idseguimiento').value
-    storage.add(store, info)
-    
-}
 
 function fillList(){
     const list = document.querySelector('#compras')
@@ -31,4 +25,11 @@ function createListNode(store, number, url){
     return li
 }
 
+function addTracking(){
+    const store     = document.querySelector('#retail').value
+    const info  = document.querySelector('#idseguimiento').value
+    storage.add(store, info)
+    
+}
+document.querySelector('#add').addEventListener('click', addTracking)
 fillList()
