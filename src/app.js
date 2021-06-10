@@ -12,7 +12,7 @@ const trackers = {
 
 function fillList(){
     const list = document.querySelector('#compras')
-
+    list.innerHTML =""
     for(let item of storage.readAll()){
         list.appendChild( createListNode(item.store, item.info, trackers[item.store](item)) )
     }
@@ -29,7 +29,7 @@ function addTracking(){
     const store     = document.querySelector('#retail').value
     const info  = document.querySelector('#idseguimiento').value
     storage.add(store, info)
-    
+    fillList()
 }
 document.querySelector('#add').addEventListener('click', addTracking)
 fillList()
